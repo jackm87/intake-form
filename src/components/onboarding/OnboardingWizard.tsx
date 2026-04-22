@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { StepWorkspace } from "./StepWorkspace";
 import { StepTemplate } from "./StepTemplate";
 import { StepBranding } from "./StepBranding";
+import { Logo } from "@/components/ui/Logo";
 
 type Step = 1 | 2 | 3;
 
@@ -80,11 +81,9 @@ export function OnboardingWizard({ defaultTemplate = "" }: OnboardingWizardProps
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12" style={{ background: "var(--bg)" }}>
       <div className="w-full max-w-lg space-y-8">
         {/* Header */}
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-zinc-50">
-            <span className="text-sky-400">Form</span>Flow
-          </h1>
-          <p className="mt-1 text-sm text-zinc-400">Set up your workspace</p>
+        <div className="text-center flex flex-col items-center">
+          <Logo size="md" href="/" />
+          <p className="mt-2 text-sm text-zinc-400">Set up your workspace</p>
         </div>
 
         {/* Step progress */}
@@ -99,9 +98,9 @@ export function OnboardingWizard({ defaultTemplate = "" }: OnboardingWizardProps
                     className={[
                       "w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-150",
                       isCompleted
-                        ? "bg-sky-500 text-white"
+                        ? "bg-emerald-500 text-white"
                         : isActive
-                        ? "bg-sky-500/20 text-sky-400 border border-sky-500/50"
+                        ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/50"
                         : "bg-white/5 text-zinc-500 border border-white/10",
                     ].join(" ")}
                   >
@@ -126,7 +125,7 @@ export function OnboardingWizard({ defaultTemplate = "" }: OnboardingWizardProps
                   <div
                     className={[
                       "flex-1 h-px mx-3 mb-5 transition-all duration-150",
-                      isCompleted ? "bg-sky-500/60" : "bg-white/8",
+                      isCompleted ? "bg-emerald-500/60" : "bg-white/8",
                     ].join(" ")}
                   />
                 )}
@@ -145,7 +144,7 @@ export function OnboardingWizard({ defaultTemplate = "" }: OnboardingWizardProps
               {defaultTemplate && (
                 <p className="text-xs text-zinc-500 -mb-2">
                   Template selected:{" "}
-                  <span className="text-sky-400 font-medium capitalize">{defaultTemplate.replace("-", " ")}</span>
+                  <span className="text-emerald-400 font-medium capitalize">{defaultTemplate.replace("-", " ")}</span>
                 </p>
               )}
               <StepWorkspace

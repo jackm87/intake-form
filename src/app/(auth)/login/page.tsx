@@ -7,6 +7,7 @@ import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Logo } from "@/components/ui/Logo";
 
 const TEMPLATE_LABELS: Record<string, string> = {
   tax: "Tax Preparation",
@@ -56,19 +57,17 @@ function LoginForm() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "var(--bg)" }}>
       <div className="w-full max-w-sm space-y-8">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-zinc-50">
-            <span className="text-sky-400">Form</span>Flow
-          </h1>
+        <div className="text-center flex flex-col items-center">
+          <Logo size="md" href="/" />
           {templateLabel ? (
             <>
-              <p className="mt-2 text-sm text-zinc-400">Sign in to your account</p>
-              <p className="mt-1 text-xs text-zinc-600">
-                Setting up a <span className="text-sky-400 font-medium">{templateLabel}</span> form
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Sign in to your account</p>
+              <p className="mt-1 text-xs text-zinc-500">
+                Setting up a <span className="text-emerald-500 font-medium">{templateLabel}</span> form
               </p>
             </>
           ) : (
-            <p className="mt-2 text-sm text-zinc-400">Sign in to your account</p>
+            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Sign in to your account</p>
           )}
         </div>
 
@@ -111,7 +110,7 @@ function LoginForm() {
           No account?{" "}
           <Link
             href={template ? `/signup?template=${template}` : "/signup"}
-            className="text-sky-400 hover:text-sky-300 transition-colors"
+            className="text-emerald-500 hover:text-emerald-400 transition-colors"
           >
             Create one free
           </Link>

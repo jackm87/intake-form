@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Mail } from "lucide-react";
+import { Logo } from "@/components/ui/Logo";
 
 const TEMPLATE_LABELS: Record<string, string> = {
   tax: "Tax Preparation",
@@ -67,23 +68,23 @@ function SignupForm() {
       <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "var(--bg)" }}>
         <div className="w-full max-w-sm space-y-6 text-center">
           <div className="flex justify-center">
-            <div className="w-14 h-14 rounded-full bg-sky-500/10 border border-sky-500/20 flex items-center justify-center">
-              <Mail className="w-6 h-6 text-sky-400" strokeWidth={1.5} />
+            <div className="w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+              <Mail className="w-6 h-6 text-emerald-400" strokeWidth={1.5} />
             </div>
           </div>
           <div>
-            <h2 className="text-xl font-semibold text-zinc-50">Check your inbox</h2>
-            <p className="mt-2 text-sm text-zinc-400">
+            <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">Check your inbox</h2>
+            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
               We sent a confirmation link to{" "}
-              <span className="text-zinc-200 font-medium">{email}</span>.
+              <span className="text-zinc-900 dark:text-zinc-200 font-medium">{email}</span>.
               Click it to activate your account and continue setup.
             </p>
           </div>
-          <p className="text-xs text-zinc-600">
+          <p className="text-xs text-zinc-500">
             Already confirmed?{" "}
             <Link
               href={template ? `/login?template=${template}` : "/login"}
-              className="text-sky-400 hover:text-sky-300 transition-colors"
+              className="text-emerald-500 hover:text-emerald-400 transition-colors"
             >
               Sign in
             </Link>
@@ -96,19 +97,17 @@ function SignupForm() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "var(--bg)" }}>
       <div className="w-full max-w-sm space-y-8">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-zinc-50">
-            <span className="text-sky-400">Form</span>Flow
-          </h1>
+        <div className="text-center flex flex-col items-center">
+          <Logo size="md" href="/" />
           {templateLabel ? (
             <>
-              <p className="mt-2 text-sm text-zinc-400">Create your free account</p>
-              <p className="mt-1 text-xs text-zinc-600">
-                Setting up a <span className="text-sky-400 font-medium">{templateLabel}</span> form
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Create your free account</p>
+              <p className="mt-1 text-xs text-zinc-500">
+                Setting up a <span className="text-emerald-500 font-medium">{templateLabel}</span> form
               </p>
             </>
           ) : (
-            <p className="mt-2 text-sm text-zinc-400">Create your free account</p>
+            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Create your free account</p>
           )}
         </div>
 
@@ -152,7 +151,7 @@ function SignupForm() {
           Already have an account?{" "}
           <Link
             href={template ? `/login?template=${template}` : "/login"}
-            className="text-sky-400 hover:text-sky-300 transition-colors"
+            className="text-emerald-500 hover:text-emerald-400 transition-colors"
           >
             Sign in
           </Link>
